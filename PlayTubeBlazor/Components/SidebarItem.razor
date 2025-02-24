@@ -1,0 +1,38 @@
+﻿@code {
+    [Parameter] public string Text { get; set; }
+    [Parameter] public string Link { get; set; }
+}
+
+<li class="sidebar-item">
+    <a href="@Link">@Text</a>
+</li>
+
+<style>
+    .sidebar-item {
+        padding: 10px;
+        cursor: pointer;
+        transition: background 0.3s;
+        border-radius: 4px;
+        color: rgb(50, 251, 226); /* Cor do texto */
+    }
+
+        .sidebar-item a {
+            display: block;
+            width: 100%; /* Garante que o link ocupe toda a largura */
+            height: 100%; /* Garante que o link ocupe toda a altura */
+            text-decoration: none; /* Remove underline do link */
+            color: inherit; /* Herda a cor do elemento pai */
+            font-weight: 600;
+        }
+
+        .sidebar-item:hover {
+            background-color: rgba(50, 251, 226, 0.1); /* Hover com fundo translúcido */
+            color: #ffffff; /* Muda a cor do texto ao passar o mouse */
+        }
+
+            .sidebar-item:hover a {
+                color: #ffffff; /* Muda a cor do link ao passar o mouse */
+            }
+
+
+</style>

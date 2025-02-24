@@ -1,0 +1,76 @@
+﻿@page "/"
+@using PlayTubeBlazor.Components.VideoCard
+
+<div class="content-header">
+    <h1>Vídeos em Destaque</h1>
+</div>
+
+<div class="videos">
+    @foreach (var video in videos)
+    {
+        <VideoCard ImageUrl="@video.ImageUrl"
+                   AltText="@video.AltText"
+                   Title="@video.Title" />
+    }
+</div>
+
+@code {
+    private List<Video> videos = new List<Video>
+{
+        new Video
+        {
+            ImageUrl = "https://picsum.photos/250/150?random=1",
+            AltText = "Como Criar Componentes no React: Passo a Passo para Iniciantes",
+            Title = "Como Criar Componentes no React: Passo a Passo para Iniciantes"
+        },
+        new Video
+        {
+            ImageUrl = "https://picsum.photos/250/150?random=2",
+            AltText = "React Hooks: Entendendo useState e useEffect na Prática",
+            Title = "React Hooks: Entendendo useState e useEffect na Prática"
+        },
+        new Video
+        {
+            ImageUrl = "https://picsum.photos/250/150?random=3",
+            AltText = "Dominando JSX: Como Escrever Código Limpo e Eficiente em React",
+            Title = "Dominando JSX: Como Escrever Código Limpo e Eficiente em React"
+        },
+        new Video
+        {
+            ImageUrl = "https://picsum.photos/250/150?random=4",
+            AltText = "Gerenciamento de Estado em React com Context API",
+            Title = "Gerenciamento de Estado em React com Context API"
+        },
+        new Video
+        {
+            ImageUrl = "https://picsum.photos/250/150?random=5",
+            AltText = "Integrando APIs Externas no React: Consumindo Dados de Forma Eficiente",
+            Title = "Integrando APIs Externas no React: Consumindo Dados de Forma Eficiente"
+        },
+        new Video
+        {
+            ImageUrl = "https://picsum.photos/250/150?random=6",
+            AltText = "Roteamento no React com React Router: Guia Completo",
+            Title = "Roteamento no React com React Router: Guia Completo"
+        },
+        new Video
+        {
+            ImageUrl = "https://picsum.photos/250/150?random=7",
+            AltText = "Estilos no React com Styled-Components: A Forma Moderna de Trabalhar com CSS",
+            Title = "Estilos no React com Styled-Components: A Forma Moderna de Trabalhar com CSS"
+        },
+        new Video
+        {
+            ImageUrl = "https://picsum.photos/250/150?random=8",
+            AltText = "React vs Angular vs Vue: Qual Framework Escolher para seu Projeto Frontend?",
+            Title = "React vs Angular vs Vue: Qual Framework Escolher para seu Projeto Frontend?"
+        }
+    };
+
+    public class Video
+    {
+        public string ImageUrl { get; set; }
+        public string AltText { get; set; }
+        public string Title { get; set; }
+    }
+}

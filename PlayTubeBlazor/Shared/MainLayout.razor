@@ -1,0 +1,41 @@
+﻿@inherits LayoutComponentBase
+@using PlayTubeBlazor.Components.Sidebar
+
+<PageTitle>PlayTubeBlazor</PageTitle>
+
+<div id="root">
+    <div class="topbar">
+        <div class="site-name">PlayTube</div>
+        <div class="links">
+            <a href="#">Cadastrar</a>
+            <a href="#">Logar</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <Sidebar />
+
+        <div class="content">
+            @Body
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 PlayTube</p>
+    </div>
+</div>
+
+
+
+<style>
+    .layout {
+        display: flex;
+        height: 100vh;
+    }
+
+    .main-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+    }
+</style>

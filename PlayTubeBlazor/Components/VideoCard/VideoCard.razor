@@ -1,0 +1,39 @@
+﻿@inject IJSRuntime JS
+
+@code {
+    [Parameter] public string ImageUrl { get; set; }
+    [Parameter] public string AltText { get; set; }
+    [Parameter] public string Title { get; set; }
+
+    private bool IsFavorited = false;
+    private int Likes { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Inicializa com um número aleatório de likes entre 10 e 500
+        Likes = new Random().Next(10, 500);
+    }
+
+    private void HandleClick()
+    {
+        JS.InvokeVoidAsync("alert", "clique");
+    }
+
+    private void ToggleFavorite()
+    {
+        IsFavorited = !IsFavorited;
+        Likes = IsFavorited ? Likes + 1 : Likes - 1; // Aumenta ou diminui o número de likes
+    }
+
+    private string GetHeartClass()
+    {
+        return IsFavorited ? "fa fa-heart heart-filled" : "fa fa-heart-o heart-outline";
+    }
+}
+
+<div class="video-card">
+    <img src="@ImageUrl" alt="@AltText" @onclick="HandleClick" />
+    <h3>@Title</h3>
+    <i class="@GetHeartClass()" @onclick="ToggleFavorite"></i>
+    <span class="like-count">@Likes likes</span>
+</div>
